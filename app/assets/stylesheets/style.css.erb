@@ -1,0 +1,159 @@
+body {
+    background-color: #252525;
+    font-family: "Segoe UI", "Roboto Condensed", sans-serif;
+    color: white;
+    margin: 1em;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h2 {
+    font-size: 1em;
+    font-style: italic;
+}
+
+a,
+a:active,
+a:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+div#tiles {
+    display: inline-block;
+    /*float: right;
+    margin: 1em;*/
+}
+
+span.tile {
+    position: relative;
+    display: inline-block;
+    background-position: center;
+    transition: transform .5s ease;
+    -moz-transition: -moz-transform .5s ease;
+    -o-transition: -o-transform .5s ease;
+    -webkit-transition: -webkit-transform .5s ease;
+    width: 150px;
+    height: 150px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: perspective( 600px ) rotateY(0deg);
+    -moz-transform: perspective( 600px ) rotateY(0deg);
+    -o-transform: perspective( 600px ) rotateY(0deg);
+    transform: perspective( 600px ) rotateY(0deg);
+}
+
+span.tile span.right {
+    position: absolute;
+    right: 0;
+    width: 40%;
+    height: 100%;
+}
+
+span.tile span.left {
+    position: absolute;
+    left: 0;
+    width: 40%;
+    height: 100%;
+}
+
+span.tile span.top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+}
+
+span.tile span.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+}
+
+span.tile * {
+    z-index: 10;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+#home {
+    background: url(<%= asset_path "home.png" %>);
+    background-size: 150px 150px;
+}
+
+#linkedin {
+    background: url(<%= asset_path "linkedin.png" %>);
+    background-size: 150px 150px;
+}
+
+#twitter {
+    background: url(<%= asset_path "twitter.png" %>);
+    background-size: 150px 150px;
+}
+
+#facebook {
+    background: url(<%= asset_path "facebook.png" %>);
+    background-size: 150px 150px;
+}
+
+#cookbook {
+    background: url(<%= asset_path "pie.png" %>);
+    background-size: 150px 150px;
+}
+
+.tile.touchright {
+    -webkit-transform-origin: left;
+    -moz-transform-origin: left;
+    -o-transform-origin: left;
+    transform-origin: left;
+    -webkit-transform: perspective( 600px ) rotateY(15deg);
+    -moz-transform: perspective( 600px ) rotateY(15deg);
+    -o-transform: perspective( 600px ) rotateY(15deg);
+    transform: perspective( 600px ) rotateY(15deg);
+}
+
+.tile.touchleft {
+    -webkit-transform-origin: right;
+    -moz-transform-origin: right;
+    -o-transform-origin: right;
+    transform-origin: right;
+    -webkit-transform: perspective( 600px ) rotateY(-15deg);
+    -moz-transform: perspective( 600px ) rotateY(-15deg);
+    -o-transform: perspective( 600px ) rotateY(-15deg);
+    transform: perspective( 600px ) rotateY(-15deg);
+}
+
+.tile.touchtop {
+    -webkit-transform-origin: bottom;
+    -moz-transform-origin: bottom;
+    -o-transform-origin: bottom;
+    transform-origin: bottom;
+    -webkit-transform: perspective( 600px ) rotateX(15deg);
+    -moz-transform: perspective( 600px ) rotateX(15deg);
+    -o-transform: perspective( 600px ) rotateX(15deg);
+    transform: perspective( 600px ) rotateX(15deg);
+}
+
+.tile.touchbottom {
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    -o-transform-origin: top;
+    transform-origin: top;
+    -webkit-transform: perspective( 600px ) rotateX(-15deg);
+    -moz-transform: perspective( 600px ) rotateX(-15deg);
+    -o-transform: perspective( 600px ) rotateX(-15deg);
+    transform: perspective( 600px ) rotateX(-15deg);
+}
