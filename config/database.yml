@@ -1,16 +1,4 @@
-common: &common
-  adapter: postgresql
-  username: rails
-  password: rails
-
-test:
-  <<: *common
-  database: cookbook_test
-
 development:
-  <<: *common
-  database: cookbook_dev
-
-production:
-  <<: *common
-  database: cookbook_prod
+  adapter: sqlite3
+  database: db/development.sqlite3
+  timeout: 5000
