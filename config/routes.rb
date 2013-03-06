@@ -1,11 +1,13 @@
 Cookbook::Application.routes.draw do
   resources :recipes
+  resources :recipe
 
 
   resources :books
 
 
   resources :ingredients
+  resources :ingredient
 
 
   # The priority is based upon order of creation:

@@ -19,6 +19,14 @@
     <%= f.label :instructions %><br />
     <%= f.text_area :instructions %>
   </div>
+  <div class="field">
+    <%= f.label :book %>
+    <%= f.select(:book_id, Book.all.collect{ |book| [book.name, book.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :ingredient_tokens, "Ingredients" %>
+    <%= f.text_field :ingredient_tokens, "data-pre" => @recipe.ingredients.map(&:attributes).to_json %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

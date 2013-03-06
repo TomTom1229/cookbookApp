@@ -5,8 +5,11 @@ class IngredientsController < ApplicationController
     @ingredients = Ingredient.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @ingredients }
+      format.html 
+      format.json { 
+        @ingredients = Ingredient.where("name like ?","%#{params[:q]}%")
+        render json: @ingredients.map(&:attributes) 
+      }
     end
   end
 
@@ -16,7 +19,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @ingredient }
     end
   end
@@ -27,7 +30,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @ingredient }
     end
   end
