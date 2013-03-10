@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1.json
   def update
     @recipe = Recipe.find(params[:id])
-
+    puts params
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }

@@ -1,11 +1,8 @@
 Cookbook::Application.routes.draw do
   resources :recipes
   resources :recipe
-
-
   resources :books
-
-
+  resources :units
   resources :ingredients
   resources :ingredient
 

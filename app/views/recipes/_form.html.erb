@@ -24,10 +24,14 @@
     <%= f.select(:book_id, Book.all.collect{ |book| [book.name, book.id] }) %>
   </div>
   <div class="field">
-    <%= f.label :ingredient_tokens, "Ingredients" %>
-    <%= f.text_field :ingredient_tokens, "data-pre" => @recipe.ingredients.map(&:attributes).to_json %>
+    <%= f.fields_for :ingredients_recipes do |ingRec| %> 
+      <%= render "ingredients_recipe_fields", :f => ingRec %>
+    <% end %>
+    <p><%= add_ingredient_button "Add Ingredient", f, :ingredients_recipes %></p>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

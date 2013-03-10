@@ -15,12 +15,3 @@
 //= require_tree .
 //
 
-$(function() {
-  $("#recipe_ingredient_tokens").tokenInput("/ingredients.json", {
-    crossDomain: false,
-    prePopulate: $("#recipe_ingredient_tokens").data('pre'),
-    theme: "facebook",
-    preventDuplicates: true
-    //tokenFormatter
-  });
-});

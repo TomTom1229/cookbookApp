@@ -1,0 +1,33 @@
+<%= form_for(@unit) do |f| %>
+  <% if @unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+      <ul>
+      <% @unit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :short_name %><br />
+    <%= f.text_field :short_name %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_type %><br />
+    <%= f.text_field :unit_type %>
+  </div>
+  <div class="field">
+    <%= f.label :conversion, "Conversion To #{Unit.where("conversion = 1").where("unit_type = ?", @unit.unit_type).first.name.pluralize(0).titlecase}"%><br />
+    <%= f.number_field :conversion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

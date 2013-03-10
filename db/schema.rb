@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306211641) do
+ActiveRecord::Schema.define(:version => 20130307044058) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(:version => 20130306211641) do
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.decimal "amount"
-    t.text    "amount_type"
+    t.integer "unit_id"
   end
 
-  add_index "ingredients_recipes", ["recipe_id", "ingredient_id"], :name => "index_ingredients_recipes_on_recipe_id_and_ingredient_id", :unique => true
+  add_index "ingredients_recipes", ["recipe_id", "ingredient_id"], :name => "ingredient_recipe_index", :unique => true
 
   create_table "recipes", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20130306211641) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "book_id"
+  end
+
+  create_table "units", :force => true do |t|
+    t.string "name",                                          :null => false
+    t.string "short_name",                                    :null => false
+    t.string "unit_type",               :default => "Volume"
+    t.float  "conversion", :limit => 4, :default => 1.0
   end
 
 end

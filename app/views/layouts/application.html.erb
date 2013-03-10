@@ -25,12 +25,11 @@
   <div class="navbar">
     <div class="navbar-inner">
       <ul class="nav">
-        <li class="active">
-          <%= link_to "Home", root_path %>
-        </li>
-        <li><%= link_to "Ingredients", ingredients_path %></li>
-        <li><%= link_to "Books", books_path %></li>
-        <li><%= link_to "Recipes", recipes_path %></li>
+        <%= nav_link "Home", root_path %>
+        <%= nav_link "Ingredients", ingredients_path %>
+        <%= nav_link "Books", books_path %>
+        <%= nav_link "Recipes", recipes_path %>
+        <%= nav_link "Units", units_path %>
       </ul>
     </div>
   </div>
