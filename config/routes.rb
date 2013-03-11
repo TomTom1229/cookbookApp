@@ -1,4 +1,7 @@
 Cookbook::Application.routes.draw do
+  resources :categories
+
+
   resources :recipes
   resources :recipe
   resources :books

@@ -29,6 +29,10 @@
     <% end %>
     <p><%= add_ingredient_button "Add Ingredient", f, :ingredients_recipes %></p>
   </div>
+  <div class="field">
+    <%= f.label :categories_tokens, "Categories" %>
+    <%= f.text_field :categories_tokens, "data-pre" => @recipe.categories.map(&:attributes).to_json %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

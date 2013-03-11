@@ -1,4 +1,8 @@
 $(function() {
+  $("#recipe_categories_tokens").tokenInput("/categories.json", {
+    crossDomain: false,
+    prePopulate: $("#recipe_categories_tokens").data("pre")
+  });
 });
 
 function remove_fields(link) {
