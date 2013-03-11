@@ -1,13 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <%= image_tag @recipe.picture.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
   <%= @recipe.name %>
 </p>
 
 <p>
-  <b>Instructions:</b>
+  <strong>Instructions:</strong>
   <%= @recipe.instructions %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @recipe.book.name %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= render @recipe.ingredients_recipes %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= render @recipe.categories %>
 </p>
 
 
