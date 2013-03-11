@@ -1,7 +1,7 @@
-<%= if ingredients_recipe.ingredient_id %>
+<% if ingredients_recipe.ingredient_id %>
   <%= Ingredient.find(ingredients_recipe.ingredient_id).name %>
 <% end %>
 <%= ingredients_recipe.amount %>
-<%= if ingredients_recipe.unit_id %>
+<% if ingredients_recipe.unit_id %>
   <%= Unit.find(ingredients_recipe.unit_id).name %>
 <% end %>
