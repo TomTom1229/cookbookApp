@@ -13,11 +13,12 @@
   <strong>Instructions:</strong>
   <%= @recipe.instructions %>
 </p>
-
-<p>
-  <strong>Book:</strong>
-  <%= @recipe.book.name %>
-</p>
+<% if @recipe.book %>
+  <p>
+    <strong>Book:</strong>
+    <%= @recipe.book.name %>
+  </p>
+<% end %>
 
 <p>
   <strong>Ingredients:</strong>
