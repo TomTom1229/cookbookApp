@@ -1,15 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<div>
+  <%= image_tag @user.avatar.url, size: "100x100" %>
+  <h3 class="username"><%= @user.name %></h3>
+</div>
 
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="btn-group" >
+  <%= link_to 'Edit', edit_user_path(@user), :class => "btn" %>
+  <%= link_to 'Back', users_path, :class => "btn" %>
+</div>

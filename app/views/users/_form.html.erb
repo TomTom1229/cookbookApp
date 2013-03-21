@@ -15,18 +15,17 @@
     <%= f.file_field :avatar %>
   </div>
   <div class="field">
-    <%= f.label :name %>:
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :password, 'Password' %>:
+    <%= f.label :password, 'Password' %>
     <%= f.password_field :password, size: 40 %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, 'Confirm Password' %>:
+    <%= f.label :password_confirmation, 'Confirm Password' %>
     <%= f.password_field :password_confirmation, size: 40 %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="btn-group">
+    <%= f.submit "Submit", :class => "btn" %>
 <% end %>

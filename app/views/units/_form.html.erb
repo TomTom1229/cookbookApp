@@ -12,22 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :short_name %><br />
+    <%= f.label :short_name %>
     <%= f.text_field :short_name %>
   </div>
   <div class="field">
-    <%= f.label :unit_type %><br />
+    <%= f.label :unit_type %>
     <%= f.text_field :unit_type %>
   </div>
   <div class="field">
-    <%= f.label :conversion, "Conversion To #{Unit.where("conversion = 1").where("unit_type = ?", @unit.unit_type).first.name.pluralize(0).titlecase}"%><br />
+    <%= f.label :conversion, "Conversion To #{Unit.where("conversion = 1").where("unit_type = ?", @unit.unit_type).first.name.pluralize(0).titlecase}"%>
     <%= f.number_field :conversion %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="btn-group">
+    <%= f.submit "Submit", :class => "btn"  %>
 <% end %>
