@@ -1,5 +1,5 @@
-=== Cookbook App
-= Created By Tomas Morris
-= For Sara Morris
+= Cookbook App
+=== Created By Tomas Morris
+=== For Sara Morris
 
 A simple cookbook app that will allow dynamic adding of ingredients, units, and categories to recipes and then allow anyone to search through the recipes by those factors.
