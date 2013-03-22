@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<h1>
   <%= @ingredient.name %>
-</p>
+</h1>
 
-<p>
-  <b>Description:</b>
+<p class="ingredientdesc">
   <%= @ingredient.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+<div class="btn-group"
+  <%= link_to 'Edit', edit_ingredient_path(@ingredient), :class => "btn" %>
+  <%= link_to 'Back', ingredients_path, :class => "btn" %>
+</div>
