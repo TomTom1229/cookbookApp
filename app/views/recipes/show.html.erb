@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<% if @recipe.picture %>
-  <p>
-    <%= image_tag @recipe.picture.url %>
-  </p>
-<% end %>
+<div>
+  <% if @recipe.picture %>
+      <%= image_tag @recipe.picture.url, :size => "150x150" %>
+  <% end %>
+  <span class="section">
+    <div>
+      <h1 class="inline"><%= @recipe.name %></h1>
+    </div>
+    <div class="categories">
+      <%= render @recipe.categories %>
+    </div>
+  </span>
+</div>
 
 <p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
 </p>
 
 <p>
@@ -30,11 +38,7 @@
   </p>
 <% end %>
 
-<p>
-  <strong>Categories:</strong>
-  <%= render @recipe.categories %>
-</p>
-
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<div class="btn-group">
+  <%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn" %>
+  <%= link_to 'Back', recipes_path, :class => "btn" %>
+</div>

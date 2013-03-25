@@ -5,7 +5,7 @@
     <% ingredient_row.each do |ingredient| %>
       <div class="span3">
         <h2><%= ingredient.name %></h2>
-        <p><%= ingredient.description %></p>
+        <p class="description"><%= ingredient.description %></p>
         <div class="btn-group" >
           <%= link_to 'Show', ingredient, :class => "btn btn-mini" %>
           <%= link_to 'Edit', edit_ingredient_path(ingredient), :class => "btn btn-mini" %>

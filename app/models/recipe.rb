@@ -9,7 +9,7 @@ class Recipe < ActiveRecord::Base
 
   attr_accessible :instructions, :name, :book_id,
    :categories_tokens, :ingredients_recipes, :ingredients_recipes_attributes,
-   :picture
+   :picture, :description
   attr_reader :categories_tokens
 
   def categories_tokens=(ids)

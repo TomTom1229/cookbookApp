@@ -3,7 +3,7 @@
 <% @categories.each do |category| %>
   <div>
     <h3><%= category.name %></h3>
-    <p><%= category.description %></p>
+    <p class="description"><%= category.description %></p>
     <div class="btn-group">
       <%= link_to 'Show', category, :class => "btn" %>
       <%= link_to 'Edit', edit_category_path(category), :class => "btn" %>

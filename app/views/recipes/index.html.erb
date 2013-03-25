@@ -1,25 +1,14 @@
-<h1>Listing recipes</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Instructions</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>
+  Recipes
+  <%= link_to 'New Recipe', new_recipe_path, :class => "btn" %>
+</h1>
 
 <% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.name %></td>
-    <td><%= recipe.instructions %></td>
-    <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <h3><%= recipe.name %></h3>
+    <p class="description"><%= recipe.description %></p>
+    <div class="btn-group" >
+      <%= link_to 'Show', recipe, :class => "btn" %>
+      <%= link_to 'Edit', edit_recipe_path(recipe), :class => "btn" %>
+      <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+    </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Recipe', new_recipe_path %>

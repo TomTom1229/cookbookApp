@@ -32,7 +32,9 @@
         <%= nav_link "Units", units_path %>
         <%= nav_link "Categories", categories_path %>
         <%= nav_link "Users", users_path %>
+        <%= nav_link_if_else "Login", login_url, "Logout", logout_url, session[:user_id] == nil %>
       </ul>
+      <%= field_if "Administrator", session[:admin], :class => "pull-right" %>
     </div>
   </div>
 

@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+
+.description {
+  margin: 0;
+  margin-left: 3em;
+}
+
+.inline {
+  display: inline;
+}
+
+.section {
+  display: inline-block;
+}
+
+#Administrator {
+  color: #777;
+  margin: 10px 15px 10px;
+}
