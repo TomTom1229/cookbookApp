@@ -1,18 +1,27 @@
-<h1>Units</h1>
+<h1>
+  Units
+  <%= link_to 'New Unit', new_unit_path, :class => "btn" %>
+</h1>
 
 <% @units.group_by{|unit| unit.unit_type}.each do |unit_type, units| %>
   <h3><%= unit_type %></h3>
-  <% units.each do |unit| %>
-    <div>
-      <h4><%= unit.name %> (<%= unit.short_name %>)</h4><br />
-      <span><%= link_to 'Show', unit, :class => "btn btn-mini" %></span>
-      <span><%= link_to 'Edit', edit_unit_path(unit), :class => "btn btn-mini" %></span>
-      <span><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-mini" %></span>
-    </div>
-  <% end %>
+  <div class="type" >
+    <% units.each_slice(4) do |unit_row| %>
+      <div class="row">
+        <% unit_row.each do |unit| %>
+          <div class="span3">
+            <h4><%= unit.name %> (<%= unit.short_name %>)</h4><br />
+            <div class="btn-group">
+              <%= link_to 'Show', unit, :class => "btn btn-mini" %>
+              <%= link_to 'Edit', edit_unit_path(unit), :class => "btn btn-mini" %>
+              <%= destroy_button unit %>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Unit', new_unit_path, :class => "btn" %>

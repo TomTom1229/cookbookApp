@@ -19,6 +19,12 @@ module ApplicationHelper
     "<span class='#{options[:class]}' id='#{name}'>#{name}</span>".html_safe if condition
   end
 
+  def destroy_button object
+    if session[:admin]
+      link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-mini"
+    end
+  end
+
   def add_ingredient_button name, f, association
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|

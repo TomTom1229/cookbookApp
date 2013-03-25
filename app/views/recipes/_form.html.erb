@@ -41,7 +41,7 @@
     <%= f.text_field :categories_tokens, "data-pre" => @recipe.categories.map(&:attributes).to_json %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => "btn" %>
   </div>
 <% end %>
 

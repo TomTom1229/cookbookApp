@@ -9,6 +9,6 @@
     <div class="btn-group" >
       <%= link_to 'Show', recipe, :class => "btn" %>
       <%= link_to 'Edit', edit_recipe_path(recipe), :class => "btn" %>
-      <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+      <%= destroy_button recipe %>
     </div>
 <% end %>
