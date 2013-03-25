@@ -1,4 +1,7 @@
 class IngredientsRecipesController < ApplicationController
+  skip_before_filter :authorize_admin
+  skip_before_filter :authorize
+  
   # GET /ingredients_recipes.json
   def index
     @ingredients_recipes = Ingredient_Recipes.where("ingredient.name like ?", "%#{params[:q]}%")
@@ -9,9 +12,4 @@ class IngredientsRecipesController < ApplicationController
       }
     end
   end
-
-  #GET /ingredients_recipes/1.json
-#  def show
- #   @ingredients_recipes = Ingredient_Recipes.
-  #end
 end

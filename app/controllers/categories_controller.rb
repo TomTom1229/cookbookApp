@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  skip_before_filter :authorize_admin, except: [:destroy]
+
   # GET /categories
   # GET /categories.json
   def index

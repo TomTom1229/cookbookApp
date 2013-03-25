@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  skip_before_filter :authorize_admin, except: [:destroy]
+  
   # GET /recipes
   # GET /recipes.json
   def index

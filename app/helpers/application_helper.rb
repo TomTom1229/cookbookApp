@@ -12,7 +12,6 @@ module ApplicationHelper
   end
 
   def nav_link_if_else name, url, elseName, elseUrl, condition
-    puts session
     condition ? nav_link(name, url) : nav_link(elseName, elseUrl)
   end
 
