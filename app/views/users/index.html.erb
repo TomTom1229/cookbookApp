@@ -1,4 +1,7 @@
-<h1>Users</h1>
+<h1>
+  Users
+  <%= link_to 'New User', new_user_path, :class => "btn" if session[:admin] %>
+</h1>
   <% if notice %>
   <p id="notice"><%= notice %></p>
   <% end %>
@@ -22,5 +25,3 @@
 <% end %>
 
 <br />
-
-<%= link_to 'New User', new_user_path, :class => "btn" if session[:admin] %>

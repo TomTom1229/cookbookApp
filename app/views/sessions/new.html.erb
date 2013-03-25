@@ -1,7 +1,10 @@
 <h1>Log In</h1>
 
 <% if flash[:alert] %>
-  <p id="notice"><%= flash[:alert] %></p>
+  <p class="notice"><%= flash[:alert] %></p>
+<% end %>
+<% if notice %>
+  <p class="notice"><%= notice %></p>
 <% end %>
 
 <%= form_tag do %>
@@ -13,7 +16,8 @@
     <%= label_tag :password, 'Password:' %>
     <%= password_field_tag :password, params[:password] %>
   </p>
-  <p>
+  <div class="btn-group">
     <%= submit_tag "Login", :class => "btn" %>
-  </p> 
+    <%= link_to 'Register', new_user_path, :class => "btn" %>
+  </div> 
 <% end %>
