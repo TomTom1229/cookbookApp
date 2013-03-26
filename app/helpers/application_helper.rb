@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def destroy_button object
     if session[:admin]
-      link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-mini"
+      link_to 'Destroy', object, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-mini"
     end
   end
 
