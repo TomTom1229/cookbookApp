@@ -1,4 +1,7 @@
-<h1>Ingredients</h1>
+<h1>
+  Ingredients
+  <%= link_to 'New Ingredient', new_ingredient_path, :class => "btn" %>
+</h1>
 
 <% @ingredients.each_slice(4) do |ingredient_row| %>
   <div class="row">
@@ -16,6 +19,3 @@
   </div>
 <% end %>
 
-<br />
-
-<%= link_to 'New Ingredient', new_ingredient_path, :class => "btn" %>

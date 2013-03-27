@@ -7,8 +7,8 @@
     <h3><%= recipe.name %></h3>
     <p class="description"><%= recipe.description %></p>
     <div class="btn-group" >
-      <%= link_to 'Show', recipe, :class => "btn" %>
-      <%= link_to 'Edit', edit_recipe_path(recipe), :class => "btn" %>
+      <%= link_to 'Show', recipe, :class => "btn btn-mini" %>
+      <%= link_to 'Edit', edit_recipe_path(recipe), :class => "btn btn-mini" %>
       <%= destroy_button recipe %>
     </div>
 <% end %>
