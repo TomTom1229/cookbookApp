@@ -3,15 +3,19 @@
   <%= link_to 'New Category', new_category_path, :class => "btn" %>
 </h1>
 
-<% @categories.each do |category| %>
-  <div>
-    <h3><%= category.name %></h3>
-    <p class="description"><%= category.description %></p>
-    <div class="btn-group">
-      <%= link_to 'Show', category, :class => "btn btn-mini" %>
-      <%= link_to 'Edit', edit_category_path(category), :class => "btn btn-mini" %>
-      <%= destroy_button category %>
-    </div>
+<% @categories.each_slice(3) do |category_row| %>
+  <div class="row">
+    <% category_row.each do |category| %>
+      <div class="span4" >
+        <h3><%= category.name %></h3>
+        <p class="description"><%= category.description %></p>
+        <div class="btn-group">
+          <%= link_to 'Show', category, :class => "btn btn-mini" %>
+          <%= link_to 'Edit', edit_category_path(category), :class => "btn btn-mini" %>
+          <%= destroy_button category %>
+        </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
 

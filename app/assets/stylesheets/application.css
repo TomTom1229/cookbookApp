@@ -25,7 +25,20 @@
   display: inline-block;
 }
 
-#Administrator {
+.userinfo {
   color: #777;
-  margin: 10px 15px 10px;
+  margin: .2em 2.2em;
+}
+
+.username {
+  font-size: 1.5em;
+}
+
+a:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+[class*="span"] {
+  margin: 1em .5em;
 }
