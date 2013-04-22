@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+
   has_attached_file :picture, :default_url => "/images/:style/missing.png" 
   has_and_belongs_to_many :ingredients
   has_and_belongs_to_many :categories

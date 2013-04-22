@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  skip_before_filter :authorize_admin, except: [:destroy]
+  autocomplete :book, :name, full: true
   
   # GET /recipes
   # GET /recipes.json

@@ -10,7 +10,9 @@ Cookbook::Application.routes.draw do
   resources :sessions
   resources :users
   resources :categories
-  resources :recipes
+  resources :recipes do
+    get :autocomplete_book_name, on: :collection
+  end
   resources :recipe
   resources :books
   resources :units

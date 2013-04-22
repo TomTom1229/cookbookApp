@@ -8,3 +8,27 @@
 .label.category {
   margin: .6em;
 }
+
+div.span6.pull-right {
+  margin-left: 0;
+}
+
+.ingredient_recipes select{
+  width: 11em;
+}
+
+textarea {
+  height: 16em;
+}
+
+.span6 input {
+  width: 15em;
+}
+
+.span6 input[type="number"] {
+  width: 3em;
+}
+
+.removeIngredient {
+  margin-bottom: 10px;
+}

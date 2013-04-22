@@ -1,5 +1,4 @@
 class UnitsController < ApplicationController
-  skip_before_filter :authorize_admin, except: [:destroy]
   
   # GET /units
   # GET /units.json

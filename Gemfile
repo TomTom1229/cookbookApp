@@ -17,6 +17,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
 gem 'haml'
 gem 'rails_tokeninput'
 gem 'paperclip'

@@ -3,11 +3,21 @@ $(function() {
     crossDomain: false,
     prePopulate: $("#recipe_categories_tokens").data("pre")
   });
+
+  $(".removeIngredient").click(remove_fields);
+
+  $("[type='checkbox']").hide();
+  $("#recipe_picture").hide();
+
+  $(".fileButton").click(function() {
+    $("#recipe_picture").click();
+  });
+  
 });
 
-function remove_fields(link) {
-  $(link).prev("input[type='hidden']").val("1");
-  $(link).closest(".fields").hide();
+function remove_fields() {
+  $(this).prev("input[type='hidden']").val("1");
+  $(this).parent().hide();
 }
 
 function add_fields(link, association, content) {

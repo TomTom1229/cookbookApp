@@ -1,6 +1,4 @@
 class IngredientsRecipesController < ApplicationController
-  skip_before_filter :authorize_admin
-  skip_before_filter :authorize
   
   # GET /ingredients_recipes.json
   def index

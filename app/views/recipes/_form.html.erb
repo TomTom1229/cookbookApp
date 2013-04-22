@@ -2,7 +2,6 @@
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
       <ul>
       <% @recipe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,34 +10,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.file_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :instructions %><br />
-    <%= f.text_area :instructions %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :book %>
-    <%= f.select(:book_id, Book.all.collect{ |book| [book.name, book.id] }) %>
-  </div>
-  <div class="field">
-    <%= f.fields_for :ingredients_recipes do |ingRec| %> 
-      <%= render "ingredients_recipe_fields", :f => ingRec %>
-    <% end %>
-    <p><%= add_ingredient_button "Add Ingredient", f, :ingredients_recipes %></p>
-  </div>
-  <div class="field">
-    <%= f.label :categories_tokens, "Categories" %>
-    <%= f.text_field :categories_tokens, "data-pre" => @recipe.categories.map(&:attributes).to_json %>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="field">
+        <input id="recipe_picture" name="recipe[picture]" type="file" />
+        <% if @recipe and @recipe.picture %>
+          <%= image_tag @recipe.picture.url, :size => "150x150", class: "btn fileButton" %>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.autocomplete_field :book_name, autocomplete_book_name_recipes_path %>
+      </div>
+      <div class="field ingredient_recipes">
+        <%= f.label :ingredients %> 
+        <%= f.fields_for :ingredients_recipes do |ing_rec| %> 
+          <%= render "ingredients_recipe_fields", :f => ing_rec %>
+        <% end %>
+        <p><%= add_ingredient_button "Add Ingredient", f, :ingredients_recipes %></p>
+      </div>
+      <div class="field">
+        <%= f.label :categories_tokens, "Categories" %>
+        <%= f.text_field :categories_tokens, "data-pre" => @recipe.categories.map(&:attributes).to_json %>
+      </div>
+    </div>
+    <div class="span6 pull-right">
+      <div class="field">
+        <%= f.label :instructions %><br />
+        <%= f.text_area :instructions %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_area :description %>
+      </div>
+    </div>
   </div>
   <div class="btn-group">
     <%= f.submit "Submit", :class => "btn" %>

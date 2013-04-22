@@ -1,7 +1,7 @@
-<p>
+<p class="ingredients">
   <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>  
   <%= f.number_field :amount, :placeholder => 'enter amount' %>
   <%= f.collection_select :unit_id, Unit.all, 'id', 'name' %>
   <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove" %>
+  <%= f.label :_destroy, "Remove", :class => "btn btn-danger removeIngredient" %>
 </p>
