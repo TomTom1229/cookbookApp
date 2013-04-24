@@ -22,9 +22,9 @@
         <%= f.label :name %><br />
         <%= f.text_field :name %>
       </div>
-      <%= fields_for @recipe.book do |book| %>
+      <%= fields_for :book do |book| %>
         <div class="field">
-          <%= book.label :name %> 
+          <%= book.label :name, "Book Title" %> 
           <%= book.text_field :name, :id => "book_autocomplete" %>
           <%= book.hidden_field :id, :id => "book_autocomplete_id" %>
         </div>
