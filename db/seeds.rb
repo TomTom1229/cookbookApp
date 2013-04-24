@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 Unit.delete_all
 units = Unit.create([
   { name: "cup", short_name: "c" },
@@ -17,3 +10,7 @@ units = Unit.create([
   { name: "pound", short_name: "lb", unit_type: "Weight"},
   { name: "gram", short_name: "g", unit_type: "Weight", conversion: 0.0022 }
   ])
+
+20.times do |i|
+  Recipe.create({ name: "test #{i}", description: "test description #{i}"})
+end

@@ -1,10 +1,9 @@
 class RecipesController < ApplicationController
-  autocomplete :book, :name, full: true
-  
   # GET /recipes
   # GET /recipes.json
+  # GET /recipes.js
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +15,9 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+
+    @recipe.views += 1
+    @recipe.save
 
     respond_to do |format|
       format.html # show.html.erb
@@ -59,7 +61,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1.json
   def update
     @recipe = Recipe.find(params[:id])
-    puts params
+
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }

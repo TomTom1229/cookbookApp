@@ -13,7 +13,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier',     '>= 1.0.3'
 end
 
 gem 'jquery-rails'
@@ -21,5 +21,6 @@ gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'haml'
 gem 'rails_tokeninput'
+gem 'will_paginate', '~> 3.0.0'
 gem 'paperclip'
 gem 'bcrypt-ruby', '~> 3.0.0'

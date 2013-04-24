@@ -2,12 +2,18 @@ class BooksController < ApplicationController
 
   # GET /books
   # GET /books.json
+  # GET /books.js
   def index
-    @books = Book.all
+    puts params
+    if params[:term]
+      @books = Book.find(:all, conditions: "upper(name) like upper('%#{params[:term]}%')")
+    else
+      @books = Book.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @books }
+      format.json { render json: @books.as_json }
     end
   end
 

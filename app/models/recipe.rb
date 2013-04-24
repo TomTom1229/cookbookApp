@@ -13,6 +13,8 @@ class Recipe < ActiveRecord::Base
    :picture, :description
   attr_reader :categories_tokens
 
+  self.per_page = 9
+
   def categories_tokens=(ids)
     self.category_ids = ids.split(",")
   end
