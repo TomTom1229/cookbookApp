@@ -6,7 +6,7 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients_recipes
   belongs_to :book
   accepts_nested_attributes_for :ingredients_recipes, :reject_if => lambda { |a| a[:ingredient_id].blank? }, :allow_destroy => true
-  accepts_nested_attributes_for :book, :reject_if => lambda { |a| a[:ingredient_id].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :book, :reject_if => lambda { |a| a[:book_id].blank? }, :allow_destroy => false
   has_many :categories_recipes
 
   attr_accessible :instructions, :name, :book_id,

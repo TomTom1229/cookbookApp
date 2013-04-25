@@ -3,11 +3,15 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.json
   def index
-    @units = Unit.all
+    if params[:term]
+      @units = Units.find(:all, conditions: "upper(name) like upper('%#{params[:term]}%')")
+    else 
+      @units = Unit.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @units }
+      format.json { render json: @units.as_json }
     end
   end
 

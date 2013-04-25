@@ -1,9 +1,11 @@
 $(function() {
   SetupUI();
-
 });
 
 function SetupUI() {
+  $(".nopost").removeAttr("name");
+
+
   $("#recipe_categories_tokens").tokenInput("/categories.json", {
     crossDomain: false,
     prePopulate: $("#recipe_categories_tokens").data("pre")
@@ -18,10 +20,16 @@ function SetupUI() {
     $("#recipe_picture").click();
   });
 
-  $("#book_autocomplete").autocomplete({
+  $("#recipe_book_attributes_name").autocomplete(autocompleteObject("/books.json"));
+  $(".ingredient_autocomplete").autocomplete(autocompleteObject("/ingredients.json"));
+  $(".unit_autocomplete").autocomplete(autocompleteObject("/units.json"));
+}
+
+function autocompleteObject(url) {
+  return {
     source: function (request, response) {
         $.ajax({
-            url: "/books.json",
+            url: url,
             dataType: "json",
             type: 'GET',
             global: false,
@@ -37,11 +45,10 @@ function SetupUI() {
     },
     minLength: 3,
     select: function (event, ui) {
-        $(this).val(ui.item.label);
-        $("#book_autocomplete_id").val(ui.item.value);
+        $(this).val(ui.item.label).siblings(".id_field").val(ui.item.value);
         return false;
     }
-  });
+  };
 }
 
 function remove_fields() {

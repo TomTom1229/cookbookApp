@@ -3,14 +3,15 @@ class IngredientsController < ApplicationController\
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    if params[:term]
+      @ingredients = Ingredient.find(:all, conditions: "upper(name) like upper('%#{params[:term]}%')")
+    else
+      @ingredients = Ingredient.all
+    end
 
     respond_to do |format|
       format.html 
-      format.json { 
-        @ingredients = Ingredient.where("name like ?","%#{params[:q]}%")
-        render json: @ingredients.map(&:attributes) 
-      }
+      format.json { render json: @ingredients.as_json }
     end
   end
 

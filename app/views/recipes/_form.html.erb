@@ -22,11 +22,12 @@
         <%= f.label :name %><br />
         <%= f.text_field :name %>
       </div>
-      <%= fields_for :book do |book| %>
+      <% @recipe.build_book unless @recipe.book %>
+      <%= f.fields_for :book, include_id: false do |book| %>
         <div class="field">
           <%= book.label :name, "Book Title" %> 
-          <%= book.text_field :name, :id => "book_autocomplete" %>
-          <%= book.hidden_field :id, :id => "book_autocomplete_id" %>
+          <%= book.text_field :name, class: "nopost" %>
+          <%= f.hidden_field :book_id, class: "id_field" %>
         </div>
       <% end %>
       <div class="field ingredient_recipes">

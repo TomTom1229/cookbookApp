@@ -1,7 +1,13 @@
 <p class="ingredients">
-  <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>  
+  <%= f.fields_for :ingredient, include_id: false do |ingredient_fields| %>
+    <%= ingredient_fields.text_field :name, class: "nopost ingredient_autocomplete" %>  
+    <%= f.hidden_field :ingredient_id, class: "id_field" %> 
+  <% end %> 
   <%= f.number_field :amount, :placeholder => 'enter amount' %>
-  <%= f.collection_select :unit_id, Unit.all, 'id', 'name' %>
+  <%= f.fields_for :unit, include_id: false do |unit_fields| %>
+    <%= unit_fields.text_field :name, class: "nopost unit_autocomplete" %>  
+    <%= f.hidden_field :unit_id, class: "id_field" %> 
+  <% end %>
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, "Remove", :class => "btn btn-danger removeIngredient" %>
 </p>

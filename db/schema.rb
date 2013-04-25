@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422184457) do
+ActiveRecord::Schema.define(:version => 20130425021734) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(:version => 20130422184457) do
   end
 
   create_table "ingredients_recipes", :force => true do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
+    t.integer "recipe_id",     :null => false
+    t.integer "ingredient_id", :null => false
     t.decimal "amount"
-    t.integer "unit_id"
+    t.integer "unit_id",       :null => false
   end
 
   add_index "ingredients_recipes", ["recipe_id", "ingredient_id"], :name => "ingredient_recipe_index", :unique => true

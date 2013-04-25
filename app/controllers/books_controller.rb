@@ -4,7 +4,6 @@ class BooksController < ApplicationController
   # GET /books.json
   # GET /books.js
   def index
-    puts params
     if params[:term]
       @books = Book.find(:all, conditions: "upper(name) like upper('%#{params[:term]}%')")
     else
