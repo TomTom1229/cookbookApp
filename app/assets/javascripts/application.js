@@ -17,3 +17,8 @@
 //= require_tree .
 //
 
+$(function() {
+  $(".pagination > *").addClass("btn");
+  $(".pagination").addClass("btn-group");
+  $(".pagination > .current").addClass("disabled");
+});

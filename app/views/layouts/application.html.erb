@@ -32,6 +32,14 @@
         <%= nav_link "Units", units_path %>
         <%= nav_link "Categories", categories_path %>
       </ul>
+      <%= form_tag recipes_path, method: "get" do %>
+        <div class="search_wrapper">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-search"></i></span>
+            <%= text_field_tag :search, params[:search], class: "search_box" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 

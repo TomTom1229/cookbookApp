@@ -19,4 +19,9 @@ class Recipe < ActiveRecord::Base
   def categories_tokens=(ids)
     self.category_ids = ids.split(",")
   end
+
+  def self.search(term)
+    Recipe.where(["recipes.name like :term or 
+                   recipes.description like :term", { term: "%#{term}%" }])
+  end
 end

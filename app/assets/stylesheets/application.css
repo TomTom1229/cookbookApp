@@ -13,6 +13,42 @@
  *= require_tree .
  */
 
+.search_box {
+  width: 5em;
+  transition: all .5s ease !important;
+}
+
+.search_wrapper {
+  float: right;
+  margin: 5px 0;
+}
+
+.search_box:focus {
+  width: 10em;
+}
+
+.recipe_wrapper {
+  min-height: 150px;
+  margin-bottom: 1em;
+}
+
+.recipe_picture {
+  float: left;
+  margin-right: 1em;
+}
+
+.paginate_wrapper {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
 .description {
   margin: 0;
   margin-left: 3em;
