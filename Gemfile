@@ -24,3 +24,4 @@ gem 'rails_tokeninput'
 gem 'will_paginate', '~> 3.0.0'
 gem 'paperclip'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'activeresource', require: "active_resource"

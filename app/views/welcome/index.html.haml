@@ -3,18 +3,26 @@
 - if notice
   %p.notice
     = notice
--@recipes.each do |recipe|
-  .recipe_wrapper
-    - if recipe.picture
-      = image_tag recipe.picture.url, size: "150x150", class: "recipe_picture"
-    .section
-      .recipe
-        %h3.inline
-          = link_to recipe.name, recipe
-      .categories
-        = render recipe.categories
-      %p.description
-        = recipe.description
+.container-fluid
+  .row-fluid
+    .span8
+      -@recipes.each do |recipe|
+        .recipe_wrapper
+          - if recipe.picture
+            = image_tag recipe.picture.url, size: "150x150", class: "recipe_picture"
+          .section
+            .recipe
+              %h3.inline
+                = link_to recipe.name, recipe
+            .categories
+              = render recipe.categories
+            %p.description
+              = recipe.description
+    .span3
+      %p
+        Daily Joke!
+      %p
+        =@joke.body
 %div.paginate_wrapper
   = will_paginate @recipes
     
